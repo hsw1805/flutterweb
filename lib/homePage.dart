@@ -5,14 +5,13 @@ import 'package:closet/outer.dart';
 import 'package:closet/top.dart';
 import 'package:flutter/material.dart';
 
-
-enum ListMenu {
-  HomePage,
-  Outer,
-  Top,
-  Bottom,
-  Accessories,
-}
+// enum ListMenu {
+//   HomePage,
+//   Outer,
+//   Top,
+//   Bottom,
+//   Accessories,
+// }
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -25,13 +24,10 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      decoration: const BoxDecoration(
-        image: DecorationImage(
-            image : AssetImage('assets/home.jpg'),
-            fit:BoxFit.fill,
-      )
-
-      )
-    );
+        decoration: const BoxDecoration(
+            image: DecorationImage(
+      image: AssetImage('assets/home.jpg'),
+      fit: BoxFit.fill,
+    )));
   }
 }

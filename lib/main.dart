@@ -13,8 +13,9 @@ class Closet extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Closet',          //윈도우 바 이름
-      theme: ThemeData(         //테마 바꾸기(나중에 수정할 것)
+      title: 'Closet', //윈도우 바 이름
+      theme: ThemeData(
+        //테마 바꾸기(나중에 수정할 것)
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
@@ -22,4 +23,3 @@ class Closet extends StatelessWidget {
     );
   }
 }
-

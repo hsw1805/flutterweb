@@ -1,20 +1,11 @@
 import 'package:closet/accessories.dart';
 import 'package:closet/bottom.dart';
-import 'package:closet/home.dart';
 import 'package:closet/homePage.dart';
+import 'package:closet/login.dart';
 import 'package:closet/outer.dart';
 import 'package:closet/top.dart';
 import 'package:flutter/material.dart';
 
-import 'home.dart';
-
-enum ListMenu {
-  Home,
-  Outer,
-  Top,
-  Bottom,
-  Accessories,
-}
 
 class Home extends StatefulWidget {
   const Home({super.key});
@@ -39,13 +30,12 @@ class _HomeState extends State<Home> {
     setState(() {});
   }
 
-  ListMenu? listMenu;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.black.withOpacity(1),       //투명도 조절
+        backgroundColor: Colors.black.withOpacity(1), //투명도 조절
         title: const Text(
           'Vintage Closet',
           style: TextStyle(
@@ -55,27 +45,33 @@ class _HomeState extends State<Home> {
           ),
         ),
         leading: Builder(
-          builder: (BuildContext context){
+          builder: (BuildContext context) {
             return IconButton(
               icon: const Icon(Icons.list),
               color: Colors.white,
-              onPressed: (){
+              onPressed: () {
                 Scaffold.of(context).openDrawer();
               },
               tooltip: MaterialLocalizations.of(context).openAppDrawerTooltip,
             );
           },
-        )
+        ),
+        actions: const [
+          Login(),
+        ],
       ),
+      drawer: Drawer(
+        //Drawer을 써서 옆 쪽 리스트  만들기!
 
-      drawer: Drawer(       //Drawer을 써서 옆 쪽 리스트  만들기!
-
-        backgroundColor: Colors.black.withOpacity(0.05),   //drawer 배경화면 색
+        backgroundColor: Colors.black.withOpacity(0.05), //drawer 배경화면 색
         child: ListView(
           padding: EdgeInsets.all(12),
           children: [
             ListTile(
-              leading: Icon(Icons.home,color: Colors.white,),
+              leading: Icon(
+                Icons.home,
+                color: Colors.white,
+              ),
               title: const Text('Home', style: TextStyle(color: Colors.white)),
               selected: _selectedIndex == 0,
               onTap: () {
@@ -84,8 +80,8 @@ class _HomeState extends State<Home> {
               },
             ),
             ListTile(
-
-              title: const Text('        Outer',style: TextStyle(color: Colors.white)),
+              title: const Text('        Outer',
+                  style: TextStyle(color: Colors.white)),
               selected: _selectedIndex == 1,
               onTap: () {
                 _onItemClick(1);
@@ -93,7 +89,8 @@ class _HomeState extends State<Home> {
               },
             ),
             ListTile(
-              title: const Text('        Top',style: TextStyle(color: Colors.white)),
+              title: const Text('        Top',
+                  style: TextStyle(color: Colors.white)),
               selected: _selectedIndex == 2,
               onTap: () {
                 _onItemClick(2);
@@ -101,7 +98,8 @@ class _HomeState extends State<Home> {
               },
             ),
             ListTile(
-              title: const Text('        Bottom',style: TextStyle(color: Colors.white)),
+              title: const Text('        Bottom',
+                  style: TextStyle(color: Colors.white)),
               selected: _selectedIndex == 3,
               onTap: () {
                 _onItemClick(3);
@@ -109,7 +107,8 @@ class _HomeState extends State<Home> {
               },
             ),
             ListTile(
-              title: const Text('        Accessories',style: TextStyle(color: Colors.white)),
+              title: const Text('        Accessories',
+                  style: TextStyle(color: Colors.white)),
               selected: _selectedIndex == 4,
               onTap: () {
                 _onItemClick(4);

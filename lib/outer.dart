@@ -147,7 +147,7 @@ class _OuterState extends State<Outer> {
                       width: 463,
                       fit: BoxFit.contain,
                     ),
-                    Text("BROOKS BROTHERS BROOKSWEED SACK JACKET (105)",
+                    Text("BROOKS BROTHERS BROOKSWEED SACK JACKET",
                         maxLines: 2, style: TextStyle(fontSize: 18)),
                     Text(
                       "589,000원",
@@ -219,7 +219,7 @@ class _OuterState extends State<Outer> {
                       width: 463,
                       fit: BoxFit.contain,
                     ),
-                    Text("BROOKS BROTHERS LAMBSWOOL CARDIGAN BEIGE",
+                    Text("BROOKS BROTHERS LAMBSWOOL CARDIGAN ",
                         style: TextStyle(fontSize: 18)),
                     Text(
                       "239,000원",
