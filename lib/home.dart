@@ -1,6 +1,8 @@
 import 'package:closet/accessories.dart';
+import 'package:closet/appBarDrawer.dart';
 import 'package:closet/bottom.dart';
 import 'package:closet/homePage.dart';
+import 'package:closet/listView.dart';
 import 'package:closet/login.dart';
 import 'package:closet/outer.dart';
 import 'package:closet/top.dart';
@@ -60,64 +62,7 @@ class _HomeState extends State<Home> {
           Login(),
         ],
       ),
-      drawer: Drawer(
-        //Drawer을 써서 옆 쪽 리스트  만들기!
-
-        backgroundColor: Colors.black.withOpacity(0.05), //drawer 배경화면 색
-        child: ListView(
-          padding: EdgeInsets.all(12),
-          children: [
-            ListTile(
-              leading: Icon(
-                Icons.home,
-                color: Colors.white,
-              ),
-              title: const Text('Home', style: TextStyle(color: Colors.white)),
-              selected: _selectedIndex == 0,
-              onTap: () {
-                _onItemClick(0);
-                Navigator.pop(context);
-              },
-            ),
-            ListTile(
-              title: const Text('        Outer',
-                  style: TextStyle(color: Colors.white)),
-              selected: _selectedIndex == 1,
-              onTap: () {
-                _onItemClick(1);
-                Navigator.pop(context);
-              },
-            ),
-            ListTile(
-              title: const Text('        Top',
-                  style: TextStyle(color: Colors.white)),
-              selected: _selectedIndex == 2,
-              onTap: () {
-                _onItemClick(2);
-                Navigator.pop(context);
-              },
-            ),
-            ListTile(
-              title: const Text('        Bottom',
-                  style: TextStyle(color: Colors.white)),
-              selected: _selectedIndex == 3,
-              onTap: () {
-                _onItemClick(3);
-                Navigator.pop(context);
-              },
-            ),
-            ListTile(
-              title: const Text('        Accessories',
-                  style: TextStyle(color: Colors.white)),
-              selected: _selectedIndex == 4,
-              onTap: () {
-                _onItemClick(4);
-                Navigator.pop(context);
-              },
-            ),
-          ],
-        ),
-      ),
+      drawer: AppBarDrawer(selectedIndex: _selectedIndex, onItemClick: _onItemClick),
       body: pages[_selectedIndex],
     );
   }

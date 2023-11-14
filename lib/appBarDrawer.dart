@@ -1,65 +1,66 @@
+import 'package:closet/listView.dart';
 import 'package:flutter/material.dart';
 
 class AppBarDrawer extends StatefulWidget {
-  const AppBarDrawer({Key? key, required this.selectedIndex}) : super(key: key);
-
   final int selectedIndex;
+  final Function(int) onItemClick;
+  const AppBarDrawer({
+    Key? key,
+    required this.selectedIndex,
+    required this.onItemClick
+  }) : super(key : key);
 
   @override
   State<AppBarDrawer> createState() => _AppBarDrawerState();
 }
 
 class _AppBarDrawerState extends State<AppBarDrawer> {
-  void _onItemClick(int index) {
-    print(index);
-    setState(() {});
-    Navigator.pop(context);
-  }
-
   @override
   Widget build(BuildContext context) {
-    return Drawer(
-      backgroundColor: Colors.black.withOpacity(0.05),
+    return Drawer(           //Drawer을 써서 옆 쪽 리스트  만들기!
+
+      backgroundColor: Colors.black.withOpacity(0.05), //drawer 배경화면 색
       child: ListView(
-        padding: EdgeInsets.all(12),
+        padding: const EdgeInsets.all(12),
         children: [
-          ListTile(
-            leading: Icon(
-              Icons.home,
-              color: Colors.white,
-            ),
-            title: const Text('Home', style: TextStyle(color: Colors.white)),
-            selected: widget.selectedIndex == 0,
-            onTap: () {
-              _onItemClick(0);
-            },
-          ),
-          ListTile(
-            title: const Text('        Outer', style: TextStyle(color: Colors.white)),
+          DrawerList(
+              icon: Icons.home,
+              title: 'Home',
+              selected: widget.selectedIndex == 0,
+              onTap: (){
+                widget.onItemClick(0);
+                Navigator.pop(context);
+              }),
+          DrawerList(
+            title: 'Outer',
             selected: widget.selectedIndex == 1,
             onTap: () {
-              _onItemClick(1);
+              widget.onItemClick(1);
+              Navigator.pop(context);
             },
           ),
-          ListTile(
-            title: const Text('        Top', style: TextStyle(color: Colors.white)),
+          DrawerList(
+            title: 'Top',
             selected: widget.selectedIndex == 2,
             onTap: () {
-              _onItemClick(2);
+              widget.onItemClick(2);
+              Navigator.pop(context);
             },
           ),
-          ListTile(
-            title: const Text('        Bottom', style: TextStyle(color: Colors.white)),
+          DrawerList(
+            title: 'Body',
             selected: widget.selectedIndex == 3,
             onTap: () {
-              _onItemClick(3);
+              widget.onItemClick(3);
+              Navigator.pop(context);
             },
           ),
-          ListTile(
-            title: const Text('        Accessories', style: TextStyle(color: Colors.white)),
+          DrawerList(
+            title: 'Accessories',
             selected: widget.selectedIndex == 4,
             onTap: () {
-              _onItemClick(4);
+              widget.onItemClick(4);
+              Navigator.pop(context);
             },
           ),
         ],
